@@ -2,7 +2,7 @@ import React from 'react';
 import {ReactComponent as ShoppingBag} from '../../Assets/ShoppingBag.svg';
 import {connect} from 'react-redux';
 import {toggleDDAction} from '../../Redux/Cart-DropDown/Cart-DropDownaction';
-
+import {createStructuredSelector} from 'reselect';
 import {selectItemCount} from './Cart-icon-selector'
 import './cart-icon.scss';
 const CartIcon=({toggleDD,itemCount})=>{
@@ -15,10 +15,8 @@ const CartIcon=({toggleDD,itemCount})=>{
 const mapDispatchToProps=(dispatch)=>({
     toggleDD:()=>{dispatch(toggleDDAction())}
 })
-const mapStateToProps=(state)=>{
-    console.log("itemcount");
-    return {
-    itemCount:selectItemCount(state)
-}}
+const mapStateToProps=createStructuredSelector({
+    itemCount:selectItemCount
+})
 
 export default connect(mapStateToProps,mapDispatchToProps)(CartIcon);

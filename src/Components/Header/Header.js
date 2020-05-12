@@ -6,6 +6,9 @@ import {ReactComponent as Logo} from '../../Assets/crown.svg'
 import {auth} from '../../Firebase/Firebase';
 import CartIcon from '../Cart-Icon/Cart-Icon'
 import CartDropdown from '../CartDropdown/CartDropdown'; 
+import {selectCurrentUser} from '../../Redux/User/UserSelector';
+import {toggleDD} from '../../Redux/Cart-DropDown/ToggleDDSelector';
+import {createStructuredSelector} from 'reselect'
 const Header=({currentUser,toggle})=>{
     return(<div className='header'>
         <Link to='/' className='logo-container'><Logo/></Link>
@@ -19,9 +22,9 @@ const Header=({currentUser,toggle})=>{
 }
 
 
-const mapToStateToProps=(state)=>({
-    currentUser:state.user.currentUser,
-    toggle:state.toggleDropDown.toggle
+const mapToStateToProps=createStructuredSelector({
+    currentUser:selectCurrentUser,
+    toggle:toggleDD
 })
 export default connect(mapToStateToProps)(Header)
 

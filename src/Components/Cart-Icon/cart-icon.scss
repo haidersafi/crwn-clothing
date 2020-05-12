@@ -9,14 +9,17 @@
   
     .shopping-icon {
       width: 24px;
-      height: 28px;
+      height: 35px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .item-count {
       position: absolute;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
-      bottom: 11px;
+      bottom: 10px;
     }
   }
   
