@@ -9,7 +9,8 @@ import { auth,createUserProfileDocument } from './Firebase/Firebase';
 import {connect} from 'react-redux';
 import {setCurrentUser} from './Redux/User/UserAction';
 import {createStructuredSelector} from 'reselect';
-import {selectCurrentUser} from './Redux/User/UserSelector'
+import {selectCurrentUser} from './Redux/User/UserSelector';
+import CheckOutPage from './Pages/CheckOutPage/CheckOutPage';
 
 class App extends React.Component {
   unSubscribeauth=null;
@@ -39,9 +40,10 @@ class App extends React.Component {
     <div>
     <Header/>
      <Route  exact path="/" component={HomePage}/>
-     <Route exact path="/Shop" component={ShopPage}/>
+     <Route  path="/Shop" component={ShopPage}/>
      <Route exact path="/Signin" render={()=>this.props.currentUser?<Redirect to='/'/>:<SigninSignupPage/>}/>
-    </div>
+    <Route exact path="/checkout" component={CheckOutPage}/>
+     </div>
   );}
 }
 const mapStateToProps=createStructuredSelector({currentUser:selectCurrentUser})

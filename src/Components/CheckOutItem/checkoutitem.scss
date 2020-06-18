@@ -1,0 +1,31 @@
+.checkoutitem{
+    width:100%;
+    display:flex;
+    align-items:center;
+    height:220px;
+    border-bottom: 1px solid grey;
+    padding: 10px 0;
+    font-size: 20px;
+.image-container{
+    width:23%;
+    img{
+        width:100%;
+        max-height:200px;
+    }
+}
+   .name,.quantity,.price{
+    width:23%;
+   text-align: center;
+   .value{
+       margin: 0 10px;
+   }
+   .arrow{
+       cursor: pointer;
+   }
+}
+.remote-button
+{ width:8%;
+    cursor: pointer;
+    text-align: center;
+}
+}
